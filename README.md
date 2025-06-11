@@ -4,11 +4,11 @@
 
 ### 1. Creating a New Issue
 
-- **Create a new issue in Linear**
+- **Create a new issue in `Linear`**
   - Press `c` on your keyboard or click the `+` at the top of the Todo list.
 - **Naming Convention:**  
   `[LABEL] What the issue is about`
-  - **Label:** Use capital letters inside brackets, e.g. `[FEAT]` (Feature), `[BUG]`, `[ENH]` (Enhancement), etc.
+  - **Label:** Use capital letters inside brackets, e.g. `[FEAT]` for Feature, `[BUG]` for Bug, `[ENH]` for Enhancement, or `[DOC]` for Documentation, etc.
   - **Issue Name:** Summarize the issue in one sentence, e.g. `Implement interface for writing to/reading from database`.
 - **Add a Summary (if necessary):**
   - **For bugs (recommended):**
