@@ -1,6 +1,4 @@
-Chắc chắn rồi. Dưới đây là nội dung đã được định dạng lại theo chuẩn Markdown (`.md`) để bạn có thể sao chép và dán trực tiếp vào file `README.md` của dự án trên GitHub.
 
----
 
 # Kiến trúc Dự án SportNexus
 
