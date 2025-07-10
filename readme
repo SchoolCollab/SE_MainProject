@@ -1,31 +1,35 @@
+Chắc chắn rồi. Dưới đây là nội dung đã được định dạng lại theo chuẩn Markdown (`.md`) để bạn có thể sao chép và dán trực tiếp vào file `README.md` của dự án trên GitHub.
 
+---
 
-Kiến trúc MVVM Clean Architecture là một mẫu thiết kế phần mềm kết hợp giữa mẫu Model-View-ViewModel (MVVM) và các nguyên tắc của Clean Architecture. Mục tiêu chính của nó là tạo ra sự **tách biệt rõ ràng về các mối quan tâm** (separation of concerns), giúp ứng dụng dễ mở rộng, dễ kiểm thử và dễ bảo trì.
+# Kiến trúc Dự án SportNexus
+
+Kiến trúc MVVM Clean Architecture là một mẫu thiết kế phần mềm kết hợp giữa mẫu `Model-View-ViewModel` (MVVM) và các nguyên tắc của `Clean Architecture`. Mục tiêu chính của nó là tạo ra sự **tách biệt rõ ràng về các mối quan tâm** (separation of concerns), giúp ứng dụng dễ mở rộng, dễ kiểm thử và dễ bảo trì.
 
 Kiến trúc này tổ chức dự án thành ba tầng chính giao tiếp với nhau theo một luồng phụ thuộc một chiều nghiêm ngặt: **UI → Domain → Data**.
 
 ***
 
-### ## Giải thích các thành phần chính
+## Giải thích các thành phần chính
 
 Dưới đây là ý nghĩa của từng thuật ngữ trong kiến trúc này:
 
 * **UI (User Interface - Giao diện người dùng)** 📱
-    Là phần giao diện của ứng dụng mà người dùng tương tác. Trong phát triển Android hiện đại, phần này thường được xây dựng bằng **Jetpack Compose**. Nhiệm vụ của nó là hiển thị dữ liệu do ViewModel cung cấp và ghi nhận các thao tác của người dùng (như nhấn nút, nhập văn bản), sau đó chuyển cho ViewModel.
+    Là phần giao diện của ứng dụng mà người dùng tương tác. Trong phát triển Android hiện đại, phần này thường được xây dựng bằng **`Jetpack Compose`**. Nhiệm vụ của nó là hiển thị dữ liệu do `ViewModel` cung cấp và ghi nhận các thao tác của người dùng (như nhấn nút, nhập văn bản), sau đó chuyển cho `ViewModel`.
 
-* **ViewModel**
-    Một thành phần cốt lõi của mẫu MVVM. Nó hoạt động như một **cầu nối** giữa tầng UI và tầng Domain. Nó chứa **trạng thái của UI** (dữ liệu cần hiển thị) và cung cấp dữ liệu đó để UI theo dõi. ViewModel gọi các **Use Case** để thực thi logic nghiệp vụ và cập nhật trạng thái UI với kết quả nhận được. Nó được thiết kế để tồn tại qua các thay đổi về cấu hình, chẳng hạn như xoay màn hình.
+* **`ViewModel`**
+    Một thành phần cốt lõi của mẫu `MVVM`. Nó hoạt động như một **cầu nối** giữa tầng `UI` và tầng `Domain`. Nó chứa **trạng thái của UI** (dữ liệu cần hiển thị) và cung cấp dữ liệu đó để `UI` theo dõi. `ViewModel` gọi các **`Use Case`** để thực thi logic nghiệp vụ và cập nhật trạng thái UI với kết quả nhận được. Nó được thiết kế để tồn tại qua các thay đổi về cấu hình, chẳng hạn như xoay màn hình.
 
 * **DI (Dependency Injection - Tiêm phụ thuộc)** 💉
-    Là một mẫu thiết kế trong đó các phụ thuộc của một đối tượng (các đối tượng khác mà nó cần để hoạt động) được "tiêm" vào từ một nguồn bên ngoài, thay vì đối tượng tự tạo ra chúng. Điều này giúp code trở nên module hóa hơn và dễ kiểm thử hơn. **Hilt** là thư viện được Google đề xuất cho DI trong Android.
+    Là một mẫu thiết kế trong đó các phụ thuộc của một đối tượng (các đối tượng khác mà nó cần để hoạt động) được "tiêm" vào từ một nguồn bên ngoài, thay vì đối tượng tự tạo ra chúng. Điều này giúp code trở nên module hóa hơn và dễ kiểm thử hơn. **`Hilt`** là thư viện được Google đề xuất cho `DI` trong Android.
 
 * **Domain (Miền nghiệp vụ)** 🧠
-    Là **lõi của ứng dụng** của bạn. Tầng này chứa các logic và quy tắc nghiệp vụ thiết yếu. Quan trọng nhất, tầng Domain là một module Kotlin/Java thuần túy và **không phụ thuộc** vào framework Android. Điều này làm cho nó có khả năng tái sử dụng và kiểm thử cao.
-    * **Use Case (hay Interactor):** Một lớp trong tầng Domain đại diện cho một tác vụ hoặc hành động cụ thể của người dùng, ví dụ như `RegisterUserUseCase` (Use Case đăng ký người dùng) hoặc `GetBookingsUseCase` (Use Case lấy danh sách đặt chỗ). Nó điều phối luồng dữ liệu bằng cách gọi một hoặc nhiều Repository interface.
-    * **Model:** Một data class đơn giản trong tầng Domain đại diện cho một đối tượng nghiệp vụ cốt lõi (ví dụ: `User`, `Product`, hoặc `Booking`).
+    Là **lõi của ứng dụng** của bạn. Tầng này chứa các logic và quy tắc nghiệp vụ thiết yếu. Quan trọng nhất, tầng `Domain` là một module `Kotlin/Java` thuần túy và **không phụ thuộc** vào framework Android. Điều này làm cho nó có khả năng tái sử dụng và kiểm thử cao.
+    * **`Use Case` (hay Interactor):** Một lớp trong tầng `Domain` đại diện cho một tác vụ hoặc hành động cụ thể của người dùng, ví dụ như ``RegisterUserUseCase`` hoặc ``GetBookingsUseCase``. Nó điều phối luồng dữ liệu bằng cách gọi một hoặc nhiều `Repository` interface.
+    * **`Model`:** Một data class đơn giản trong tầng `Domain` đại diện cho một đối tượng nghiệp vụ cốt lõi (ví dụ: ``User``, ``Product``, hoặc ``Booking``).
 
 * **Data (Dữ liệu)** 💾
-    Tầng này chịu trách nhiệm **cung cấp dữ liệu** mà tầng Domain yêu cầu. Nó chứa các chi tiết triển khai về cách dữ liệu được lưu trữ và truy xuất. Nó che giấu các nguồn dữ liệu khỏi phần còn lại của ứng dụng.
-    * **Repository (Kho chứa):** Một lớp quản lý dữ liệu từ một hoặc nhiều nguồn (như API từ xa hoặc cơ sở dữ liệu cục bộ). Tầng Domain tương tác với một **Repository interface**, trong khi tầng Data cung cấp **phần triển khai cụ thể** của interface đó. Ví dụ, một repository có thể thử lấy dữ liệu từ cơ sở dữ liệu cục bộ trước, nếu không có, nó sẽ lấy từ API mạng.
-    * **Entity (Thực thể):** Một data class được thiết kế đặc biệt để đại diện cho một bảng trong cơ sở dữ liệu như **Room**. Ví dụ, một lớp `UserEntity` sẽ ánh xạ trực tiếp đến các cột của bảng "users".
-    * **DAO (Data Access Object - Đối tượng truy cập dữ liệu):** Một interface định nghĩa các thao tác cơ sở dữ liệu (như `INSERT`, `SELECT`, `UPDATE`). Đối với thư viện Room, bạn định nghĩa một DAO interface với các hàm, và Room sẽ tự động tạo mã cần thiết để thực hiện các truy vấn SQL đó. Repository implementation sử dụng DAO để tương tác với cơ sở dữ liệu.
+    Tầng này chịu trách nhiệm **cung cấp dữ liệu** mà tầng `Domain` yêu cầu. Nó chứa các chi tiết triển khai về cách dữ liệu được lưu trữ và truy xuất. Nó che giấu các nguồn dữ liệu khỏi phần còn lại của ứng dụng.
+    * **`Repository` (Kho chứa):** Một lớp quản lý dữ liệu từ một hoặc nhiều nguồn (như API từ xa hoặc cơ sở dữ liệu cục bộ). Tầng `Domain` tương tác với một **`Repository` interface**, trong khi tầng `Data` cung cấp **phần triển khai cụ thể** của `interface` đó. Ví dụ, một `repository` có thể thử lấy dữ liệu từ cơ sở dữ liệu cục bộ trước, nếu không có, nó sẽ lấy từ API mạng.
+    * **`Entity` (Thực thể):** Một data class được thiết kế đặc biệt để đại diện cho một bảng trong cơ sở dữ liệu như **`Room`**. Ví dụ, một lớp ``UserEntity`` sẽ ánh xạ trực tiếp đến các cột của bảng `users`.
+    * **`DAO` (Data Access Object - Đối tượng truy cập dữ liệu):** Một `interface` định nghĩa các thao tác cơ sở dữ liệu (như ``INSERT``, ``SELECT``, ``UPDATE``). Đối với thư viện `Room`, bạn định nghĩa một `DAO interface` với các hàm, và `Room` sẽ tự động tạo mã cần thiết để thực hiện các truy vấn SQL đó. `Repository` implementation sử dụng `DAO` để tương tác với cơ sở dữ liệu.
