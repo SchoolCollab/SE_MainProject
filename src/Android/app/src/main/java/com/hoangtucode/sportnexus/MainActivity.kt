@@ -7,22 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.material3.Icon
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.ui.unit.dp
-import com.hoangtucode.sportnexus.ui.WelcomePage
-import com.hoangtucode.sportnexus.ui.LoginPage
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.hoangtucode.sportnexus.ui.RegisterNewScreen
+import androidx.compose.ui.Modifier
+import com.hoangtucode.sportnexus.activities.auth.login.LoginScreen
+import com.hoangtucode.sportnexus.activities.auth.register.RegisterScreen
+import com.hoangtucode.sportnexus.activities.welcome.WelcomeScreen
 import com.hoangtucode.sportnexus.presentation.theme.SportNexusTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,26 +28,24 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     when {
                         showLogin -> {
-                            LoginPage(
+                            LoginScreen(
                                 modifier = Modifier.padding(innerPadding),
                                 onBack = { showLogin = false },
                                 onLogin = { emailOrPhone, password -> /* handle login */ },
-                                onForgotPassword = { /* handle forgot password */ }
+                                onForgotPassword = { /* handle forgot password */ },
                             )
                         }
                         showRegister -> {
-                            RegisterNewScreen(
+                            RegisterScreen(
                                 modifier = Modifier.padding(innerPadding),
-                                onBackToWelcome = { showRegister = false }
+                                onBackToWelcome = { showRegister = false },
                             )
                         }
                         else -> {
-                            WelcomePage(
+                            WelcomeScreen(
                                 modifier = Modifier.padding(innerPadding),
-                                onRegisterClick = {
-                                    showRegister = true
-                                },
-                                onLoginClick = { showLogin = true }
+                                onRegisterClick = { showRegister = true },
+                                onLoginClick = { showLogin = true },
                             )
                         }
                     }
