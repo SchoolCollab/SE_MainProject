@@ -1,7 +1,5 @@
 *.iml
 .gradle
-.kotlin/errors
-.kotlin/sessions
 /local.properties
 /.idea/caches
 /.idea/libraries
