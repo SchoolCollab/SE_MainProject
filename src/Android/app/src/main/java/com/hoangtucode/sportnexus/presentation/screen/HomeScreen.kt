@@ -11,14 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hoangtucode.sportnexus.presentation.theme.SportnexusTheme
+import com.hoangtucode.sportnexus.presentation.theme.SportNexusTheme
 
 class HomeScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            SportnexusTheme {
+            SportNexusTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(name = "Android", modifier = Modifier.padding(innerPadding))
                 }
@@ -35,5 +35,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    SportnexusTheme { Greeting("Android") }
+    SportNexusTheme { 
+        Greeting("Android") 
+    }
 }
