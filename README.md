@@ -1,100 +1,98 @@
-src
-└── Android
-    ├── app
-    │   ├── build.gradle.kts
-    │   ├── proguard-rules.pro
-    │   └── src
-    │       └── main
-    │           ├── AndroidManifest.xml
-    │           └── java
-    │               └── com
-    │                   └── hoangtucode
-    │                       └── sportnexus
-    │                           ├── MainActivity.kt
-    │                           ├── SportNexusApp.kt  // Main application class for Hilt setup
-    │                           │
-    │                           ├── common // Shared code across features
-    │                           │   ├── components // Reusable UI components (e.g., CustomButton, LoadingIndicator)
-    │                           │   └── util // Utility classes, constants, extensions
-    │                           │
-    │                           ├── data // Data layer implementation
-    │                           │   ├── local // Room Database, DataStore
-    │                           │   │   └── SportNexusDatabase.kt
-    │                           │   ├── remote // Retrofit/Ktor API definitions
-    │                           │   │   ├── SportNexusApi.kt
-    │                           │   │   └── dto // Data Transfer Objects for API communication
-    │                           │   └── repository // Repository implementations
-    │                           │
-    │                           ├── di // Dependency Injection (Hilt/Koin)
-    │                           │   ├── AppModule.kt
-    │                           │   ├── NetworkModule.kt
-    │                           │   └── DatabaseModule.kt
-    │                           │
-    │                           ├── domain // Core business logic (use cases, models, repository interfaces)
-    │                           │   ├── model // Core data models (e.g., User, Court, Booking)
-    │                           │   └── repository // Repository interfaces
-    │                           │
-    │                           └── presentation // UI Layer (Screens, ViewModels, Navigation)
-    │                               ├── navigation
-    │                               │   ├── AppNavigation.kt
-    │                               │   └── Screen.kt
-    │                               ├── theme
-    │                               │   ├── Color.kt
-    │                               │   ├── Theme.kt
-    │                               │   └── Type.kt
-    │                               │
-    │                               └── features // All app features are organized as modules here
-    │                                   ├── auth // Authentication feature
-    │                                   │   ├── login
-    │                                   │   │   ├── LoginScreen.kt
-    │                                   │   │   └── LoginViewModel.kt
-    │                                   │   ├── register
-    │                                   │   │   └── RegisterScreen.kt
-    │                                   │   └── verification
-    │                                   │       └── PhoneVerificationScreen.kt
-    │                                   │
-    │                                   ├── court_booking // Court search and booking
-    │                                   │   ├── search
-    │                                   │   │   ├── CourtSearchScreen.kt
-    │                                   │   │   └── CourtSearchViewModel.kt
-    │                                   │   ├── details
-    │                                   │   │   ├── CourtDetailsScreen.kt
-    │                                   │   │   └── CourtDetailsViewModel.kt
-    │                                   │   └── booking
-    │                                   │       ├── BookingScreen.kt
-    │                                   │       └── BookingViewModel.kt
-    │                                   │
-    │                                   ├── social // Player matching, lobbies, chat
-    │                                   │   ├── swipe
-    │                                   │   │   ├── TeammateSwipeScreen.kt
-    │                                   │   │   └── TeammateSwipeViewModel.kt
-    │                                   │   ├── lobby
-    │                                   │   │   ├── LobbyScreen.kt
-    │                                   │   │   └── LobbyViewModel.kt
-    │                                   │   └── chat
-    │                                   │       ├── ChatListScreen.kt
-    │                                   │       └── ConversationScreen.kt
-    │                                   │
-    │                                   ├── profile // User profile, settings, history
-    │                                   │   ├── view
-    │                                   │   │   ├── ProfileScreen.kt
-    │                                   │   │   └── ProfileViewModel.kt
-    │                                   │   ├── edit
-    │                                   │   │   └── EditProfileScreen.kt
-    │                                   │   └── history
-    │                                   │       └── BookingHistoryScreen.kt
-    │                                   │
-    │                                   ├── court_owner // All screens for court owners
-    │                                   │   ├── dashboard
-    │                                   │   │   ├── OwnerDashboardScreen.kt
-    │                                   │   │   └── OwnerDashboardViewModel.kt
-    │                                   │   ├── manage_courts
-    │                                   │   │   └── ManageCourtScreen.kt
-    │                                   │   └── manage_bookings
-    │                                   │       └── ManageBookingsScreen.kt
-    │                                   │
-    │                                   └── tournament // Tournament feature
-    │                                       ├── list
-    │                                       │   └── TournamentListScreen.kt
-    │                                       └── bracket
-    │                                           └── TournamentBracketScreen.kt
+Of course. Here is the provided file structure formatted as a Markdown code block, perfect for a `README.md` file.
+
+```markdown
+## 📁 Project Structure
+
+This project follows the **MVVM (Model-View-ViewModel)** and **Clean Architecture** principles, with a focus on feature-based packaging.
+
+```
+
+src/Android/
+└── app
+├── build.gradle.kts
+├── proguard-rules.pro
+└── src
+└── main
+├── AndroidManifest.xml
+└── java
+└── com
+└── hoangtucode
+└── sportnexus
+├── MainActivity.kt
+├── SportNexusApp.kt
+│
+├── common
+│   ├── components
+│   └── util
+│
+├── data
+│   ├── local
+│   │   └── SportNexusDatabase.kt
+│   ├── remote
+│   │   ├── SportNexusApi.kt
+│   │   └── dto
+│   └── repository
+│
+├── di
+│   ├── AppModule.kt
+│   ├── NetworkModule.kt
+│   └── DatabaseModule.kt
+│
+├── domain
+│   ├── model
+│   └── repository
+│
+└── presentation
+├── navigation
+│   ├── AppNavigation.kt
+│   └── Screen.kt
+├── theme
+│   ├── Color.kt
+│   ├── Theme.kt
+│   └── Type.kt
+│
+└── features
+├── auth
+│   ├── login
+│   ├── register
+│   └── verification
+│
+├── court\_booking
+│   ├── search
+│   ├── details
+│   └── booking
+│
+├── social
+│   ├── swipe
+│   ├── lobby
+│   └── chat
+│
+├── profile
+│   ├── view
+│   ├── edit
+│   └── history
+│
+├── court\_owner
+│   ├── dashboard
+│   ├── manage\_courts
+│   └── manage\_bookings
+│
+└── tournament
+├── list
+└── bracket
+
+```
+
+***
+
+### Layer Explanation
+
+* **`common`**: Contains shared code, such as reusable UI components and utility functions, to avoid duplication across features.
+* **`data`**: Implements the logic for data retrieval and storage. It includes local database definitions (Room), remote API services (Retrofit/Ktor), and repository implementations.
+* **`di`**: Handles dependency injection using Hilt or Koin, providing necessary dependencies throughout the app.
+* **`domain`**: The core business layer. It contains pure Kotlin modules with business models, use cases, and repository interfaces, making it independent of the Android framework.
+* **`presentation`**: The UI layer, which includes:
+    * **`navigation`**: Defines the app's navigation graph.
+    * **`theme`**: Contains Jetpack Compose theming (colors, typography).
+    * **`features`**: Contains all UI-related code (Screens and ViewModels), organized by application feature (e.g., authentication, booking, profile).
+```
