@@ -1,0 +1,42 @@
+# Style
+style=java
+
+# Attachments
+attach-namespaces        # Attach opening brace to namespace
+attach-classes           # Attach opening brace to class
+attach-inlines           # Attach opening brace to inline functions
+attach-extern-c          # Attach opening brace to extern "C"
+attach-closing-while     # Attach closing 'while' to 'do-while'
+attach-return-type       # Attach return type to function name
+
+# Indentations
+indent-namespaces        # Indent inside namespace blocks
+indent-modifiers         # Indent modifiers (e.g. 'public', 'private'...)
+indent-switches          # Indent switch statements
+indent-cases             # Indent case labels
+indent-col1-comments     # Indent column 1 comments
+indent-after-parens      # Indent after parenthesis
+indent-continuation=1    # Indent continuation lines
+indent-labels            # Indent labels
+indent-preproc-block     # Indent preprocessor blocks
+indent-preproc-define    # Indent preprocessor directives
+indent-preproc-cond      # Indent preprocessor conditional directives
+indent-lambda            # Indent lambda functions
+
+# Paddings
+break-blocks=all         # Pad empty lines around header blocks (e.g. 'if', 'for', 'while'...)
+pad-oper                 # Add padding around operators
+pad-comma                # Add padding after commas
+pad-include              # Add padding to include directives
+pad-header               # Add padding to header (e.g. 'if', 'for', 'while'...)
+unpad-brackets           # Remove padding from square brackets  
+
+# Formatting
+squeeze-lines=2          # Remove extra lines
+squeeze-ws               # Remove extra whitespaces
+align-pointer=type       # Align pointer to type
+align-reference=type     # Align reference to type
+add-braces               # Add braces to 'if', 'for', 'while'... blocks
+break-one-line-headers   # Break one-line headers 
+max-code-length=100      # Maximum code length
+break-after-logical      # Break after logical operators
