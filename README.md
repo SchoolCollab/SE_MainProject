@@ -1,59 +1,165 @@
-# SE_MainProject
+<center>
 
-## Workflow Guide
+[![Language](https://img.shields.io/badge/Language-Java%2021+-red?logo=OpenJDK&logoColor=white)](https://openjdk.org/) [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Spring%20Boot-blue?logo=android&logoColor=white)](https://developer.android.com/)  
+[![Build Tool](https://img.shields.io/badge/Build%20Tool-Gradle-02303A?logo=gradle)](https://gradle.org/)  
+[![Database Service](https://img.shields.io/badge/Database%20Service-Supabase-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/) [![Database System](https://img.shields.io/badge/Database%20System-PostgreSQL-316192?logo=postgresql&logoColor=white)](https://www.postgresql.org/)  
+[![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
 
-### 1. Creating a New Issue
+</center>
 
-- **Create a new issue in `Linear`**
-  - Press `c` on your keyboard or click the `+` at the top of the Todo list.
-- **Naming Convention:**  
-  `[LABEL] What the issue is about`
-  - **Label:** Use capital letters inside brackets, e.g. `[FEAT]` for Feature, `[BUG]` for Bug, `[ENH]` for Enhancement, or `[DOC]` for Documentation, etc.
-  - **Issue Name:** Summarize the issue in one sentence, e.g. `Implement interface for writing to/reading from database`.
-- **Add a Summary (if necessary):**
-  - **For bugs (recommended):**
-    - Steps to reproduce the bug
-    - Potential causes
-    - Proposed approach to fix the bug
-  - **For new features/enhancements (if large):**
-    - Modules/scripts/functions involved
-    - How it will improve the codebase
-- **Label the issue.**
-- **Assign the responsible person** (typically the creator).
+# 🏟️ SportNexus
+
+SportNexus is an online platform that helps people book courts for four major sports: **football, badminton, tennis, and pickleball**. With SportNexus, users can easily discover nearby courts, check real-time availability, and make instant bookings—all in one seamless and convenient experience.
+
+By bridging the gap between players and venues across multiple platforms, SportNexus aims to create a smarter, more connected ecosystem for sports and recreation—so everyone can spend less time planning and more time playing.
 
 ---
 
-### 2. Working on the Issue
+## 📦 Key Features
 
-- Go to the connected GitHub issue.
-- **Create a new branch** for your work.
-
-#### Commit Guidelines
-
-- **Commit regularly.**
-  - Divide your work into logical parts.  
-    _Example:_ For "Implement interface for writing to/reading from database", you might have:
-    - Add interface class to communicate with MongoDB
-    - Replace direct MongoDB calls with interface functions
-  - Add files related to the current part (usually one file at a time).
-- **Commit message convention:**  
-  `[label] what the commit is about`
-  - Use the same labels as above. For bug fixes, use `[fix]`.
-  - Summarize the commit in one sentence, e.g. `add interface class to communicate with MongoDB`.
-- **Fetch and pull before pushing** (highly recommended).
+- 👤 **User Accounts & Recovery**
+  - Secure sign-up with optional phone and ID verification
+  - Account recovery via verified contact or limited phone guessing
+- 🏟️ **Court Booking**
+  - Real-time availability, multi-slot booking, cancellation, and refunds
+  - Owner-controlled pricing, blackout dates, and booking management
+- 🔍 **Court Discovery**
+  - Smart suggestions based on location, time, and user history
+  - Filters and keyword-based search with prioritized matches
+- 🏷️ **Court Profiles & Reviews**
+  - Mini/full profiles with images, prices, services, and user reviews
+  - AI-generated summaries highlighting common feedback and ratings
+- 💳 **Payments**
+  - Platform-mediated transactions, vouchers, and refund handling
+  - Encouraged online payments for transparency
+- ⭐ **Personalization**
+  - Favorite courts, booking/review history, and UI customization
+- 🏆 **Community Features**
+  - Tournaments: Verified hosts, prize pools, and structured matches
+  - Lobbies: Room booking with participant sharing and rules
+  - Social Feed: Share updates, tag bookings or tournaments
+- 🏅 **Reputation Point System**
+  - Points-based system rewarding activity and penalizing misconduct
+  - Affects access to features like lobby participation
+- 🏢 **Court Owner Tools**
+  - Court publishing, schedule control, and income statistics
+  - Violation handling and user report resolutions
 
 ---
 
-### 3. Making a Pull Request
+## 📱 Platform & Target Users
 
-- **Create a pull request** (PR).
-  - Name the PR (typically the same as the issue's name).
-- **Request reviews** from other members.
-  - Wait for at least 2 reviews before merging.
-  - Try to resolve all comments before merging.
-  - Communicate with reviewers to address change requests.
-- **Resolve conflicts** if your branch conflicts with the main branch.
+- **Platform:** Mobile (Android)
+- **Backend:** Spring Boot (JavaDK 21), PostgreSQL (Supabase)
+- **Target Users:** Sports players, Court owners
+- **Purpose:** Enable users to reserve available sports courts directly from facility owners
 
 ---
 
-_This workflow helps ensure code quality, traceability, and smooth collaboration._
+## 📁 Project Structure (TODO: UPDATE THIS LATER)
+
+```bash
+/
+├── src/
+│   ├── backend/                # Spring Boot backend
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   ├── java/       # Controllers, services, models, repositories
+│   │   │   │   └── resources/  # application.properties, static files
+│   │   │   └── test/           # JUnit tests
+│   │   └── build.gradle        # Backend Gradle config
+│   └── android/                # Android client app
+│       ├── app/
+│       │   ├── src/
+│       │   │   ├── main/
+│       │   │   │   ├── java/   # UI, ViewModels, UseCases, Entities, Retrofit
+│       │   │   │   └── res/    # Layouts, resources
+│       │   └── build.gradle    # Android Gradle config
+│       └── ...
+│
+├── docs/                       # Documentation (architecture, requirements, etc.)
+├── README.md                   # Project documentation
+├── LICENSE                     # Project license
+└── .gitignore                  # Git ignore rules
+```
+
+---
+
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+- **JavaDK 21** (OpenJDK recommended)
+- **Gradle** (for building both backend and Android)
+- **Android Studio** (latest stable version)
+- **Android SDK** (API level 33+)
+- **Supabase PostgreSQL** instance (for backend database)
+- **Internet connection** (for dependency and API access)
+
+### ⚙️ Backend: Build and Run
+
+```bash
+# Build the backend 
+./src/backend/gradlew clean build
+
+# Boot the backend
+./src/backend/gradlew bootRun
+```
+
+### 📱 Android: Build and Run
+
+1. Open `src/android` in Android Studio.
+2. Sync Gradle and download dependencies.
+3. Configure the backend API base URL if needed.
+4. Connect a device or start an emulator.
+5. Build and run the app from Android Studio.
+
+---
+
+## 🧪 Running Backend Tests
+
+```bash
+./src/backend/gradlew test
+```
+
+---
+
+## 📖 Documentation
+
+- [Architecture](./docs/analysis%20and%20design/)
+  + [Backend](./docs/analysis%20and%20design/backendArchitecture.md)
+  + [Android](./docs/analysis%20and%20design/androidArchitecture.md)
+- [Requirements](./docs/requirements/requirement.md)
+- [Workflow Guide](./docs/management/workflow.md)
+
+---
+
+## 👨‍💻 Authors
+
+- **Team Name:** HOANGTUCODE
+- **Members:**  
+  - Huynh Dang Khoa - 23127390  
+  - Nguyen Van Bao Phuc - 23127457
+  - Cao Le Gia Phu - 23127535 
+  - Nguyen Thanh Nhan - 23127533
+
+---
+
+## 🏆 Contribution
+
+| Member              | Contribution |
+| ------------------- | ------------ |
+| Huynh Dang Khoa     | **10**       |
+| Nguyen Van Bao Phuc | **10**       |
+| Cao Le Gia Phu      | **10**       |
+| Nguyen Thanh Nhan   | **10**       |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [`LICENSE`](./LICENSE) for full details.
+
+---
+
+_SportNexus: Redefining how you play, book, and connect through sports!_
